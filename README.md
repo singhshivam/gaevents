@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/gaevents@2x.png)](https://badge.fury.io/rb/gaevents)
+
 # Gaevents
 
 This gem provides an integration for sending multiple events to Google Analytics. Events are sent in batches leveraging Measurement Protocol.

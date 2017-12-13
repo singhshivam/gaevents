@@ -21,14 +21,14 @@ Or install it yourself as:
 ## Usage
 
 ```
-	# configure your application's API key
-	GAEvents.api_key = "UA-XXXXX-Y"
+# configure your application's API key
+GAEvents.api_key = "UA-XXXXX-Y"
 
-	events = []
-	10.times { |n|
-		events << GAEvents::Event.new(GOOGLE_API_CLIENT_ID, "testcategory", "gaaction#{n}")
-	}
-	GAEvents.track(events)
+events = []
+10.times { |n|
+	events << GAEvents::Event.new(GOOGLE_API_CLIENT_ID, "testcategory", "gaaction#{n}")
+}
+GAEvents.track(events)
 ```
 ## Development
 

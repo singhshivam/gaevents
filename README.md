@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/gaevents@2x.png)](https://badge.fury.io/rb/gaevents)
+[![Gem Version](https://badge.fury.io/rb/gaevents.svg)](https://badge.fury.io/rb/gaevents)
 
 # Gaevents
 
@@ -22,16 +22,33 @@ Or install it yourself as:
 
 ## Usage
 
+Please refer [Measurement Protocol Parameter Reference](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters) for the list of all parameters accepted by the Protocol.
+
+The following parameters are required in each event:
+`v`, `tid`, `cid` and `t`. This gem automatically injects `v` and `tid` therefore make sure all generated events have `cid` and `t` as parameters.
+
 ```
 # configure your application's API key
 GAEvents.api_key = "UA-XXXXX-Y"
 
 events = []
 10.times { |n|
-	events << GAEvents::Event.new(GOOGLE_API_CLIENT_ID, "testcategory", "gaaction#{n}")
+	events << GAEvents::Event.new({cid: "ci#{n}", t: 'event', ec: "video#{n}", ea: "abc#{n}", uid: "user#{n}"})
 }
 GAEvents.track(events)
 ```
+
+## Migrating from 0.x to 1.x
+
+In 0.x versions events were restricted to accepting only 5 parameters: `cid`, `ec`, `ea`, `el` and `ev` in the same order. Example:
+```
+GAEvents::Event.new(GOOGLE_API_CLIENT_ID, "testcategory", "gaaction")
+```
+1.x now accepts a hash that can have any number of acceptable parameters. The above line of code then becomes:
+```
+ GAEvents::Event.new({cid: GOOGLE_API_CLIENT_ID, ec: "testcategory", ea: "gaaction"})
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

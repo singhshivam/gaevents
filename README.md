@@ -25,15 +25,12 @@ Or install it yourself as:
 Please refer [Measurement Protocol Parameter Reference](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters) for the list of all parameters accepted by the Protocol.
 
 The following parameters are required in each event:
-`v`, `tid`, `cid` and `t`. This gem automatically injects `v` and `tid` therefore make sure all generated events have `cid` and `t` as parameters.
+`v`, `tid`, `cid` and `t`. This gem automatically injects `v`, make sure all events have `tid`, `cid` and `t` as parameters.
 
 ```
-# configure your application's API key
-GAEvents.api_key = "UA-XXXXX-Y"
-
 events = []
 10.times { |n|
-	events << GAEvents::Event.new({cid: "ci#{n}", t: 'event', ec: "video#{n}", ea: "abc#{n}", uid: "user#{n}"})
+	events << GAEvents::Event.new({tid: GATRACKINGID, cid: "ci#{n}", t: 'event', ec: "video#{n}", ea: "abc#{n}", uid: "user#{n}"})
 }
 GAEvents.track(events)
 ```
@@ -46,7 +43,7 @@ GAEvents::Event.new(GOOGLE_API_CLIENT_ID, "testcategory", "gaaction")
 ```
 1.x now accepts a hash that can have any number of acceptable parameters. The above line of code then becomes:
 ```
- GAEvents::Event.new({cid: GOOGLE_API_CLIENT_ID, ec: "testcategory", ea: "gaaction"})
+GAEvents::Event.new({tid: GATRACKINGID, cid: GOOGLE_API_CLIENT_ID, ec: "testcategory", ea: "gaaction"})
 ```
 
 ## Development

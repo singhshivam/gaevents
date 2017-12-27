@@ -8,15 +8,15 @@ class GAEvents
 		# https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
 
 		# As per Measurement Protocol, parameters: v, tid, cid and t should always be present.
-		# This gem automatically injects v and tid. Ensure you always pass cid and t when
+		# This gem automatically injects v. Ensure you always pass tid, cid and t while
 		# initializing events.
 		def initialize(hash = {})
 			@params = hash.reject { |k,v| !v }
 			@params["v"] = 1
 		end
 
-		def payload(tid)
-			URI.encode_www_form(@params.merge({"tid": tid}))
+		def payload
+			URI.encode_www_form(@params)
 		end
 	end
 end

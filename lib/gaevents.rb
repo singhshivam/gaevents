@@ -4,7 +4,7 @@ require_relative "gaevents/event"
 
 class GAEvents
 	BULK_URI = 'https://www.google-analytics.com/batch'.freeze
-	COLLECT_URI = 'https://www.google-analytics.com/batch'.freeze
+	COLLECT_URI = 'https://www.google-analytics.com/collect'.freeze
 
 	class << self
 		attr_accessor :api_key
@@ -26,7 +26,7 @@ class GAEvents
 		end
 
 		def track_body(*events)
-			events.flatten.map { |_event| _event.payload(api_key) }.join("\n")
+			events.flatten.map(&:payload).join("\n")
 		end
 	end
 end

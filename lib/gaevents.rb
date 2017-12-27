@@ -14,7 +14,8 @@ class GAEvents
 			resource.post(track_body([event]), {:content_type => 'text/plain'})
 		end
 
-		def track(*events)
+		# takes Array of Event as parameter
+		def track(events)
 			# as per GA: A maximum of 20 hits can be specified per request
 			# https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide#batch
 			res = []

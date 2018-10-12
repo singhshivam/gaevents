@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/gaevents.svg)](https://badge.fury.io/rb/gaevents)
+[![Build Status](https://travis-ci.com/singhshivam/gaevents.svg?branch=master)](https://travis-ci.com/singhshivam/gaevents)
 
 # Gaevents
 

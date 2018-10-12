@@ -2,7 +2,7 @@
 
 # Gaevents
 
-This gem provides an integration for sending multiple events to Google Analytics. Events are sent in batches leveraging Measurement Protocol.
+This gem allows you to update multiple background events in one go (via batches). Unlike other gems you do not need to load a js file to send events. Gaevents leverage GA's Measurement Protocol to send the events.
 
 ## Installation
 

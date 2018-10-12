@@ -11,6 +11,12 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Sends events to google analytics in batches leveraging Measurement Protocol}
   spec.description   = %q{Provides an integration for sending multiple events to Google Analytics}
+	spec.description   = "Google Analytics Event Tracking for background processes"
+	spec.summary       = 'This gem allows you to update multiple background events ' \
+											 'in one go (via batches). Unlike other gems ' \
+											 'you dont need to load a js file to send events. ' \
+											 'Gaevents leverage GA\'s Measurement Protocol.'
+
   spec.homepage      = "https://github.com/singhshivam/gaevents"
   spec.license       = "MIT"
 
@@ -23,5 +29,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "pry"
 	spec.add_runtime_dependency 'rest-client', '~> 2.0', '>= 2.0.2'
 end

@@ -1,0 +1,4 @@
+Style/Tab:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100

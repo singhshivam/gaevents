@@ -1,3 +1,3 @@
 module Gaevents
-  VERSION = '1.03'.freeze
+  VERSION = '1.04'.freeze
 end
